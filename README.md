@@ -30,8 +30,8 @@ This plugin aims to store all user interactions as logs that can be accessed eas
 A new content-type named `logs` is created using the `strapi generate` command, with the following components:
 
 - Route: defines a route to fetch logs according to permissions
-- Controller: handles queryies and redirects
-- Core Service: returns a paginated result
+- Controller: handles queries and redirects
+- Service: returns a paginated result of logs
 
 #### Middleware: intercept-request.js
 
