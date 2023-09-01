@@ -27,7 +27,7 @@ This plugin aims to store all user interactions as logs that can be accessed eas
 
 #### Content-Type Creation
 
-A new content-type named `logs` is created using the `strapi generate` command, with the following components:
+A new content-type named `log` is created using the `strapi generate` command, with the following components:
 
 - Route: defines a route to fetch logs according to permissions
 - Controller: handles queries and redirects
@@ -39,7 +39,7 @@ The `intercept-request.js` middleware is crafted to enhance request handling. It
 
 1. Intercepts incoming requests.
 2. Processes these requests.
-3. Creates an entry in the `logs` utilizing data extracted from both the request and the resulting response.
+3. Creates an entry in the `log` collection utilizing data extracted from both the request and the resulting response.
 
 This middleware is automatically registered globally in `register.js`.
 
