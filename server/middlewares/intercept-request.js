@@ -36,13 +36,13 @@ module.exports = ({ strapi }) => {
       );
 
       let data = {
-        User: ctx.state.user !== undefined ? ctx.state.user.email : "Anonymous",
-        URL: ctx.url,
-        "IP-Address": ctx.ip,
-        "HTTP-Method": ctx.method,
-        "HTTP-Status": ctx.status,
-        "Request-Body": request,
-        "Response-Body": response,
+        user: ctx.state.user !== undefined ? ctx.state.user.email : "Anonymous",
+        url: ctx.url,
+        ip_address: ctx.ip,
+        http_method: ctx.method,
+        http_status: ctx.status,
+        request_body: request,
+        response_body: response,
       };
 
       strapi.entityService.create(`plugin::${pluginId}.log`, {

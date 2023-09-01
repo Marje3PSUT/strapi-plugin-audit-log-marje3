@@ -47,13 +47,13 @@ const ProtectedLogs = () => (
 const Logs = () => {
   const initialColumns = [
     "id",
-    "User",
-    "IP-Address",
-    "URL",
-    "HTTP-Method",
-    "HTTP-Status",
+    "user",
+    "ip_address",
+    "url",
+    "http_method",
+    "http_status",
     "createdAt",
-  ];
+  ]; // TODO Add menu to hide columns
 
   const [{ query: queryParams }] = useQueryParams();
   const searchQuery = queryParams?._q || "";
@@ -199,7 +199,7 @@ const Logs = () => {
                       <Typography variant="sigma">
                         {formatMessage({
                           id: getTrad(`content.${column.id.toLowerCase()}`),
-                          defaultMessage: column.id.replace("-", " "),
+                          defaultMessage: column.id.replace("_", " "),
                         })}
                       </Typography>
                     </Th>

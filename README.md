@@ -6,13 +6,13 @@ This plugin aims to store all user interactions as logs that can be accessed eas
 
 ```javascript
 {
-    "User": "", // Authenticated users email or 'Anonymous' if not found.
-    "URL": "", // Endpoint that the user sent a request to. ex: '/admin/login'
-    "IP-Address": "", // IP address of the user.
-    "HTTP-Method": "", // HTTP method of the request that the user sent
-    "HTTP-Status": "", // HTTP status of the response strapi will send to the user. ex: 200 means that the operation was successful
-    "Request-Body": {}, // Contains the body of the request send by the user
-    "Response-Body": {} // Contains the body of the response that strapi will send to the user
+    user : "", // Authenticated users email or 'Anonymous' if not found.
+    url: "", // Endpoint that the user sent a request to. ex: '/admin/login'
+    ip_address: "", // IP address of the user.
+    http_method: "", // HTTP method of the request that the user sent
+    http_status: "", // HTTP status of the response strapi will send to the user. ex: 200 means that the operation was successful
+    request_body: {}, // Contains the body of the request send by the user
+    response_body: {} // Contains the body of the response that strapi will send to the user
 }
 ```
 

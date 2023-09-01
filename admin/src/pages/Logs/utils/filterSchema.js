@@ -29,7 +29,7 @@ const filterSchema = () => {
       fieldSchema: { type: "datetime" },
     },
     {
-      name: "User",
+      name: "user",
       metadatas: {
         label: formatMessage({
           id: getTrad("content.user"),
@@ -39,17 +39,17 @@ const filterSchema = () => {
       fieldSchema: { type: "string" },
     },
     {
-      name: "IP-Address",
+      name: "ip_address",
       metadatas: {
         label: formatMessage({
-          id: getTrad("content.ip-address"),
+          id: getTrad("content.ip_address"),
           defaultMessage: "IP Address",
         }),
       },
       fieldSchema: { type: "string" },
     },
     {
-      name: "URL",
+      name: "url",
       metadatas: {
         label: formatMessage({
           id: getTrad("content.url"),
@@ -59,40 +59,40 @@ const filterSchema = () => {
       fieldSchema: { type: "string" },
     },
     {
-      name: "HTTP-Method",
+      name: "http_method",
       metadatas: {
         label: formatMessage({
-          id: getTrad("content.http-method"),
+          id: getTrad("content.http_method"),
           defaultMessage: "HTTP Method",
         }),
       },
       fieldSchema: { type: "string" },
     },
     {
-      name: "HTTP-Status",
+      name: "http_status",
       metadatas: {
         label: formatMessage({
-          id: getTrad("content.http-status"),
+          id: getTrad("content.http_status"),
           defaultMessage: "HTTP Status",
         }),
       },
       fieldSchema: { type: "string" },
     },
     {
-      name: "Request-Body",
+      name: "request_body",
       metadatas: {
         label: formatMessage({
-          id: getTrad("content.request-body"),
+          id: getTrad("content.request_body"),
           defaultMessage: "Request Body",
         }),
       },
       fieldSchema: { type: "json" },
     },
     {
-      name: "Response-Body",
+      name: "response_body",
       metadatas: {
         label: formatMessage({
-          id: getTrad("content.response-body"),
+          id: getTrad("content.response_body"),
           defaultMessage: "Response Body",
         }),
       },

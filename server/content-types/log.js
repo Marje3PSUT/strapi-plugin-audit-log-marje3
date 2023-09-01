@@ -21,25 +21,25 @@ module.exports = {
     },
   },
   attributes: {
-    User: {
+    user: {
       type: "text",
     },
-    URL: {
+    url: {
       type: "text",
     },
-    "IP-Address": {
+    "ip_address": {
       type: "text",
     },
-    "HTTP-Method": {
+    "http_method": {
       type: "string",
     },
-    "HTTP-Status": {
+    "http_status": {
       type: "integer",
     },
-    "Request-Body": {
+    "request_body": {
       type: "json",
     },
-    "Response-Body": {
+    "response_body": {
       type: "json",
     },
   },

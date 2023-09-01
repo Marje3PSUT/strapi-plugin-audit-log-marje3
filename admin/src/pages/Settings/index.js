@@ -40,7 +40,7 @@ const ProtectedSettings = () => (
 );
 
 const Settings = () => {
-  const numberOptions = ["day", "week", "month", "year"];
+  const numberOptions = ["day", "week", "month", "year"]; // TODO Add locales
   const { formatMessage } = useIntl(); // For getting locales
   const toggleNotification = useNotification(); // For error saving the form
   const { notifyStatus } = useNotifyAT(); // For saving the form

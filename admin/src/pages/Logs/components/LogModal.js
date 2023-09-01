@@ -17,7 +17,7 @@ const LogModal = ({ entry }) => {
           id: getTrad("content.id"),
           defaultMessage: "User",
         })}
-        value={entry.User}
+        value={entry.user}
         disabled
       />
       <TextInput
@@ -33,47 +33,47 @@ const LogModal = ({ entry }) => {
           id: getTrad("content.url"),
           defaultMessage: "URL",
         })}
-        value={entry.URL}
+        value={entry.url}
         disabled
       />
       <TextInput
         label={formatMessage({
-          id: getTrad("content.ip-address"),
+          id: getTrad("content.ip_address"),
           defaultMessage: "IP Address",
         })}
-        value={entry["IP-Address"]}
+        value={entry["ip_address"]}
         disabled
       />
       <TextInput
         label={formatMessage({
-          id: getTrad("content.http-method"),
+          id: getTrad("content.http_method"),
           defaultMessage: "HTTP Method",
         })}
-        value={entry["HTTP-Method"]}
+        value={entry["http_method"]}
         disabled
       />
       <TextInput
         label={formatMessage({
-          id: getTrad("content.http-status"),
+          id: getTrad("content.http_status"),
           defaultMessage: "HTTP Status",
         })}
-        value={entry["HTTP-Status"]}
+        value={entry["http_status"]}
         disabled
       />
       <JSONInput
         label={formatMessage({
-          id: getTrad("content.request-body"),
+          id: getTrad("content.request_body"),
           defaultMessage: "Request Body",
         })}
-        value={JSON.stringify(entry["Request-Body"], null, 2)}
+        value={JSON.stringify(entry["request_body"], null, 2)}
         disabled
       />
       <JSONInput
         label={formatMessage({
-          id: getTrad("content.response-body"),
+          id: getTrad("content.response_body"),
           defaultMessage: "Response Body",
         })}
-        value={JSON.stringify(entry["Response-Body"], null, 2)}
+        value={JSON.stringify(entry["response_body"], null, 2)}
         disabled
       />
     </Flex>
