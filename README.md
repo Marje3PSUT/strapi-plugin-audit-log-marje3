@@ -83,3 +83,5 @@ TODO
 
 2. Add mechanism to include/exlude endpoints/statuses/methods from configuration file
 
+3. Add column hide/show menu.
+
