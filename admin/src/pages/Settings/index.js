@@ -280,7 +280,12 @@ const Settings = () => {
                     >
                       {numberOptions.map((option) => (
                         <Option key={option} value={option}>
-                          {option}(s)
+                          {formatMessage({
+                            id: getTrad(
+                              `settings.box.interval-input.${option}`
+                            ),
+                            defaultMessage: `${option}(s)`,
+                          })}
                         </Option>
                       ))}
                     </Select>

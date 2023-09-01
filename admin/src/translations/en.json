@@ -39,5 +39,9 @@
   "settings.box.logAge-input.error": "Please enter a value greater than 1",
   "settings.box.frequency-input.after.logCount": ", persisting only the latest",
   "settings.box.logCount-input.error": "Please enter a value greater than 1",
-  "settings.box.logCount-input.after": "log records."
+  "settings.box.logCount-input.after": "log records.",
+  "settings.box.interval-input.day": "day",
+  "settings.box.interval-input.week": "week",
+  "settings.box.interval-input.month": "month",
+  "settings.box.interval-input.year": "year"
 }
