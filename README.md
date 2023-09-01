@@ -79,7 +79,7 @@ TODO
 
 ## TODO
 
-1. Fix axios issue: When users open the logs tab for the first time, the strapi backend will send them to a web address with predefined settings. This leads to two requests being made. This happens because the technology used to send these requests, called axios, has a feature that manages redirects automatically, even when I try to disable it. So, the only option available is to compare the request's address with the address in the response. If they match, the web address in the browser's bar is updated, causing yet another data retrieval process.
+1. Fix axios issue: When users open the logs tab for the first time, the strapi backend will send them to a web address with predefined settings. This leads to two requests being made. This happens because the technology used to send these requests, called axios, has a feature that manages redirects automatically, even when I try to disable it. So, the only option available is to compare the request's address with the address in the response. If they don't match, the web address in the browser's bar is updated, causing yet another data retrieval process.
 
 2. Fix filtering by createdAt in logs page 
 
