@@ -37,6 +37,7 @@ import InteractiveLogRows from "./components/InteractiveLogRows";
 import TablePagination from "./components/TablePagination";
 import filterSchema from "./utils/filterSchema";
 import TableFilters from "./components/TableFilters";
+import ExportBtn from "./components/ExportBtn"
 
 const ProtectedLogs = () => (
   <CheckPagePermissions permissions={PERMISSIONS.readLogs}>
@@ -182,6 +183,7 @@ const Logs = () => {
                   })}
                 />
                 <TableFilters displayedFilters={filterSchema()} />
+                <ExportBtn list={entries.results} />
               </>
             }
           />
