@@ -16,6 +16,8 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org
+      - name: init-scope
+        run: npm init --scope=@marje3psut
       - name: publish
         run: npm publish --access public --tag latest
         env:
