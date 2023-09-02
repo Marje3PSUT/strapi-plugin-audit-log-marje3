@@ -1,6 +1,6 @@
 import pluginPkg from "../../../package.json";
 
-const pluginId = pluginPkg.name.replace(
+const pluginId = pluginPkg.strapi.name.replace(
   /^(@[^-,.][\w,-]+\/|strapi-)plugin-/i,
   ""
 );

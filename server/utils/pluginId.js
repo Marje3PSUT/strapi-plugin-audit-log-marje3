@@ -2,7 +2,7 @@
 
 const pluginPkg = require("../../package.json");
 
-const pluginId = pluginPkg.name.replace(
+const pluginId = pluginPkg.strapi.name.replace(
   /^(@[^-,.][\w,-]+\/|strapi-)plugin-/i,
   ""
 );
