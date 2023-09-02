@@ -1,5 +1,5 @@
 {
-  "name": "strapi-plugin-audit-log",
+  "name": "@marje3psut/strapi-plugin-audit-log",
   "version": "1.0.0",
   "description": "This is the description of the plugin.",
   "strapi": {
