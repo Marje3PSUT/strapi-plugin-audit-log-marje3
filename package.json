@@ -1,6 +1,6 @@
 {
   "name": "@marje3psut/strapi-plugin-audit-log",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A plugin that logs all user interactions, fully-equiped with permissions and configurations.",
   "strapi": {
     "name": "audit-log",
