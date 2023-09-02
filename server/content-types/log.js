@@ -27,19 +27,19 @@ module.exports = {
     url: {
       type: "text",
     },
-    "ip_address": {
+    ip_address: {
       type: "text",
     },
-    "http_method": {
+    http_method: {
       type: "string",
     },
-    "http_status": {
+    http_status: {
       type: "integer",
     },
-    "request_body": {
+    request_body: {
       type: "json",
     },
-    "response_body": {
+    response_body: {
       type: "json",
     },
   },
