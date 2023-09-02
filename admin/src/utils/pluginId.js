@@ -5,4 +5,6 @@ const pluginId = pluginPkg.strapi.name.replace(
   ""
 );
 
+console.log(pluginId);
+
 export default pluginId;
