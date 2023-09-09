@@ -1,6 +1,6 @@
 {
   "name": "@marje3psut/strapi-plugin-audit-log",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A plugin that logs all user interactions, fully-equiped with permissions and configurations.",
   "strapi": {
     "name": "audit-log",
@@ -47,6 +47,10 @@
       "url": "https://github.com/HDDTHR"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Marje3PSUT/audit-log-plugin.git"
+  },
   "engines": {
     "node": ">=14.19.1 <=18.x.x",
     "npm": ">=7.x.x"
