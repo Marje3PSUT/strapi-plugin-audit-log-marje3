@@ -1,5 +1,3 @@
-"use strict";
-
 const pluginId = require("../utils/pluginId");
 
 const checkLogAge = async (logAge, { strapi }) => {
@@ -17,6 +15,8 @@ const checkLogAge = async (logAge, { strapi }) => {
     case "year":
       constant = 3.154e10;
       break;
+    default:
+      throw Error("Log Age incorrent");
   }
 
   await strapi.db.query(`plugin::${pluginId}.log`).deleteMany({
@@ -63,6 +63,8 @@ module.exports = ({ strapi }) => ({
       case "logCount":
         await checkLogCount(settings.logCount, { strapi });
         break;
+      default:
+        throw Error("Frequency value is incorrent");
     }
   },
 });

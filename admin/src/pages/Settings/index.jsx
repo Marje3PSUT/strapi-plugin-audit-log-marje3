@@ -1,5 +1,3 @@
-"use strict";
-
 import React, { useState, useEffect } from "react";
 import { useIntl } from "react-intl";
 
@@ -28,18 +26,20 @@ import {
 } from "@strapi/helper-plugin";
 import { Check } from "@strapi/icons";
 
-import { PERMISSIONS } from "../../constants";
+import PERMISSIONS from "../../constants";
 import { fetchLogSettings, putLogSettings } from "./utils/api";
-import { schema } from "./utils/schema";
+import schema from "./utils/schema";
 import getTrad from "../../utils/getTrad";
 
-const ProtectedSettings = () => (
-  <CheckPagePermissions permissions={PERMISSIONS.readSettings}>
-    <Settings />
-  </CheckPagePermissions>
-);
+function ProtectedSettings() {
+  return (
+    <CheckPagePermissions permissions={PERMISSIONS.readSettings}>
+      <Settings />
+    </CheckPagePermissions>
+  );
+}
 
-const Settings = () => {
+function Settings() {
   const numberOptions = ["day", "week", "month", "year"]; // TODO Add locales
   const { formatMessage } = useIntl(); // For getting locales
   const toggleNotification = useNotification(); // For error saving the form
@@ -66,7 +66,7 @@ const Settings = () => {
           formatMessage({
             id: getTrad("settings.fetch.success"),
             defaultMessage: "Log settings have been loaded",
-          })
+          }),
         );
 
         setActivated(settingsObj.enabled);
@@ -82,7 +82,7 @@ const Settings = () => {
             id: getTrad("settings.fetch.error"),
             defaultMessage: "Failed to retrieve the log settings",
           }),
-        })
+        }),
       )
       .finally(() => setIsLoading(false));
   }, [toggleNotification, notifyStatus]);
@@ -92,10 +92,10 @@ const Settings = () => {
 
     const settings = {
       enabled: activated,
-      frequency: frequency,
+      frequency,
       logAge: {
         value: frequencyInterval,
-        interval: interval,
+        interval,
       },
       logCount: {
         value: frequencyNumber,
@@ -194,7 +194,7 @@ const Settings = () => {
               })}
             </Button>
           }
-        ></HeaderLayout>
+        />
         <ContentLayout>
           <Box
             background="neutral0"
@@ -207,10 +207,10 @@ const Settings = () => {
           >
             <Flex direction="column" alignItems="stretch" gap={4}>
               <Typography variant="delta" as="h2">
-                {formatMessage({
+                {`${formatMessage({
                   id: getTrad("settings.box.header"),
                   defaultMessage: "Delete frequency",
-                }) + ":"}
+                })}:`}
               </Typography>
               <Typography>
                 {formatMessage({
@@ -255,7 +255,7 @@ const Settings = () => {
                     <Typography>
                       {formatMessage({
                         id: getTrad(
-                          "settings.box.frequency-input.after.logAge"
+                          "settings.box.frequency-input.after.logAge",
                         ),
                         defaultMessage: ", deleting logs older than",
                       })}
@@ -272,7 +272,7 @@ const Settings = () => {
                         })
                       }
                       min="1"
-                    ></NumberInput>
+                    />
                     <Select
                       disabled={!activated}
                       value={interval}
@@ -282,7 +282,7 @@ const Settings = () => {
                         <Option key={option} value={option}>
                           {formatMessage({
                             id: getTrad(
-                              `settings.box.interval-input.${option}`
+                              `settings.box.interval-input.${option}`,
                             ),
                             defaultMessage: `${option}(s)`,
                           })}
@@ -296,7 +296,7 @@ const Settings = () => {
                     <Typography>
                       {formatMessage({
                         id: getTrad(
-                          "settings.box.frequency-input.after.logCount"
+                          "settings.box.frequency-input.after.logCount",
                         ),
                         defaultMessage: ", persisting only the latest",
                       })}
@@ -313,7 +313,7 @@ const Settings = () => {
                         })
                       }
                       min="1"
-                    ></NumberInput>
+                    />
                     <Typography>
                       {formatMessage({
                         id: getTrad("settings.box.logCount-input.after"),
@@ -329,6 +329,6 @@ const Settings = () => {
       </form>
     </Main>
   );
-};
+}
 
 export default ProtectedSettings;

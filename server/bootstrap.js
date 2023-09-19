@@ -1,5 +1,3 @@
-"use strict";
-
 const pluginId = require("./utils/pluginId");
 
 const RBAC_ACTIONS = [
@@ -48,7 +46,7 @@ module.exports = async ({ strapi }) => {
   await initLogSettings(pluginStore);
 
   await strapi.admin.services.permission.actionProvider.registerMany(
-    RBAC_ACTIONS
+    RBAC_ACTIONS,
   );
 
   await strapi.cron.add({

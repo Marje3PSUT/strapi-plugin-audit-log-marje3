@@ -1,5 +1,3 @@
-"use strict";
-
 import { getFetchClient } from "@strapi/helper-plugin";
 import { stringify } from "qs";
 
@@ -10,10 +8,10 @@ const fetchLogs = async (queryParams) => {
   const result = await get(
     `/${pluginId}/logs${
       queryParams ? `?${stringify(queryParams, { encode: false })}` : ""
-    }`
+    }`,
   );
   const url = result.request.responseURL.match(
-    `\\/(${pluginId})\\/logs(?:\\?[^#]*)?(?:#.*)?`
+    `\\/(${pluginId})\\/logs(?:\\?[^#]*)?(?:#.*)?`,
   )[0];
 
   if (result.config.url !== url) {

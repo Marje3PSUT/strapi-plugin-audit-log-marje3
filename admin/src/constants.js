@@ -1,6 +1,6 @@
 import pluginId from "./utils/pluginId";
 
-export const PERMISSIONS = {
+const PERMISSIONS = {
   readSettings: [
     { action: `plugin::${pluginId}.settings.read`, subject: null },
   ],
@@ -9,3 +9,5 @@ export const PERMISSIONS = {
   ],
   readLogs: [{ action: `plugin::${pluginId}.read`, subject: null }],
 };
+
+export default PERMISSIONS;

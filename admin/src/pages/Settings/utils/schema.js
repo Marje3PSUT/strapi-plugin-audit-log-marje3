@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const schema = yup.object().shape({
+const schema = yup.object().shape({
   enabled: yup.boolean(),
   frequency: yup.string().oneOf(["logAge", "logCount"]),
   logAge: yup.object().shape({
@@ -11,3 +11,5 @@ export const schema = yup.object().shape({
     value: yup.number().min(1),
   }),
 });
+
+export default schema;

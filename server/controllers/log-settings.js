@@ -1,5 +1,3 @@
-"use strict";
-
 const { ValidationError } = require("@strapi/utils").errors;
 const yup = require("yup");
 const pluginId = require("../utils/pluginId");
@@ -16,7 +14,7 @@ const schema = yup.object().shape({
   }),
 });
 
-module.exports = {
+module.exports = ({ strapi }) => ({
   async getSettings(ctx) {
     const settings = await strapi
       .store({ type: "plugin", name: pluginId, key: "log-settings" })
@@ -38,4 +36,4 @@ module.exports = {
 
     ctx.send({ ok: true });
   },
-};
+});

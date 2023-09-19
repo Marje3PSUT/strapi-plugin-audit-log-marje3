@@ -1,5 +1,3 @@
-"use strict";
-
 const LogService = require("./log");
 const DeleteLogService = require("./delete-log");
 

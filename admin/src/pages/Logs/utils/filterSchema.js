@@ -1,5 +1,3 @@
-"use strict";
-
 import { useIntl } from "react-intl";
 
 import getTrad from "../../../utils/getTrad";

@@ -1,5 +1,3 @@
-"use strict";
-
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { useIntl } from "react-intl";
@@ -30,7 +28,7 @@ import {
   SearchURLQuery,
 } from "@strapi/helper-plugin";
 
-import { PERMISSIONS } from "../../constants";
+import PERMISSIONS from "../../constants";
 import fetchLogs from "./utils/api";
 import getTrad from "../../utils/getTrad";
 import InteractiveLogRows from "./components/InteractiveLogRows";
@@ -38,13 +36,15 @@ import TablePagination from "./components/TablePagination";
 import filterSchema from "./utils/filterSchema";
 import TableFilters from "./components/TableFilters";
 
-const ProtectedLogs = () => (
-  <CheckPagePermissions permissions={PERMISSIONS.readLogs}>
-    <Logs />
-  </CheckPagePermissions>
-);
+function ProtectedLogs() {
+  return (
+    <CheckPagePermissions permissions={PERMISSIONS.readLogs}>
+      <Logs />
+    </CheckPagePermissions>
+  );
+}
 
-const Logs = () => {
+function Logs() {
   const initialColumns = [
     "id",
     "user",
@@ -63,7 +63,7 @@ const Logs = () => {
   const { formatMessage } = useIntl(); // For getting locales
   const toggleNotification = useNotification(); // For error saving the form
   const { notifyStatus } = useNotifyAT(); // For saving the form
-  //const { lockApp, unlockApp } = useOverlayBlocker(); // Locking form while submitting
+  // const { lockApp, unlockApp } = useOverlayBlocker(); // Locking form while submitting
   useFocusWhenNavigate(); // \_[._.]_/ No clue what this does, but every other plugin has it
 
   const [entries, setEntries] = useState({
@@ -74,7 +74,7 @@ const Logs = () => {
     initialColumns.map((id) => ({
       id,
       visible: true,
-    }))
+    })),
   );
 
   const emptyLayoutContent = {
@@ -96,7 +96,7 @@ const Logs = () => {
           formatMessage({
             id: getTrad("fetch.success"),
             defaultMessage: "Logs have been loaded.",
-          })
+          }),
         );
         if (res.location) {
           history.replace(res.location);
@@ -113,7 +113,7 @@ const Logs = () => {
             defaultMessage: "Failed to retrieve the logs.",
           }),
         });
-        console.log("error" + e);
+        console.log(`error${e}`);
       });
   });
 
@@ -131,13 +131,10 @@ const Logs = () => {
             id: getTrad("title"),
             defaultMessage: "Audit Logs",
           })}
-          subtitle={
-            "0 " +
-            formatMessage({
-              id: getTrad("subtitle"),
-              defaultMessage: "entries found",
-            })
-          }
+          subtitle={`0 ${formatMessage({
+            id: getTrad("subtitle"),
+            defaultMessage: "entries found",
+          })}`}
         />
         <ContentLayout>
           <LoadingIndicatorPage />
@@ -159,17 +156,13 @@ const Logs = () => {
           id: getTrad("title"),
           defaultMessage: "Audit Logs",
         })}
-        subtitle={
-          entries.pagination.total +
-          " " +
-          formatMessage({
-            id: getTrad("subtitle"),
-            defaultMessage: "entries found",
-          })
-        }
-      ></HeaderLayout>
+        subtitle={`${entries.pagination.total} ${formatMessage({
+          id: getTrad("subtitle"),
+          defaultMessage: "entries found",
+        })}`}
+      />
       {_.isEmpty(entries) ? (
-        <EmptyStateLayout content={formatMessage(emptyLayoutContent["logs"])} />
+        <EmptyStateLayout content={formatMessage(emptyLayoutContent.logs)} />
       ) : (
         <>
           <ActionLayout
@@ -209,7 +202,7 @@ const Logs = () => {
               <InteractiveLogRows
                 entries={entries}
                 visibleColumns={visibleColumns}
-              ></InteractiveLogRows>
+              />
             </Table>
             <TablePagination
               pagination={{ pageCount: entries.pagination?.pageCount || 1 }}
@@ -219,6 +212,6 @@ const Logs = () => {
       )}
     </Main>
   );
-};
+}
 
 export default ProtectedLogs;

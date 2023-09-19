@@ -1,5 +1,3 @@
-"use strict";
-
 const { defaultsDeep, isEqual } = require("lodash/fp");
 const { stringify } = require("qs");
 const pluginId = require("../utils/pluginId");
@@ -30,7 +28,7 @@ module.exports = ({ strapi }) => ({
 
     if (!isEqual(ctx.query, mergeQuery)) {
       ctx.redirect(
-        `/${pluginId}/logs?${stringify(defaults, { encode: false })}`
+        `/${pluginId}/logs?${stringify(defaults, { encode: false })}`,
       );
       return;
     }

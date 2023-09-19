@@ -1,8 +1,5 @@
-"use strict";
-
-import pluginId from "../../../utils/pluginId";
-
 import { getFetchClient } from "@strapi/helper-plugin";
+import pluginId from "../../../utils/pluginId";
 
 const fetchLogSettings = async () => {
   const { get } = getFetchClient();
