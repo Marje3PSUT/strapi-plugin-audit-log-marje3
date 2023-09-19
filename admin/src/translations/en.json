@@ -30,6 +30,7 @@
   "settings.subtitle": "All settings related to the audit log plugin",
   "settings.save": "Save",
 
+  "settings.box.warning": "The settings will be saved only for this session. Enter these settings into the configuration file for persistence. check the documentation here",
   "settings.box.header": "Delete frequency",
   "settings.box.subheading": "This settings block determines the frequency at which the auditlogs will be deleted, and based on what criteria.",
   "settings.box.frequency-input.before": "Delete based on",

@@ -14,7 +14,7 @@ The default configuration is as follows (you must add it to `./config/plugin.js`
 ```js
 module.exports = {
     // ...
-    "@marje3psut/strapi-plugin-audit-log": {
+    "audit-log-marje3": {
         enabled: true,
         config: {
             deletion: {
@@ -24,7 +24,7 @@ module.exports = {
                   value: 2,
                   interval: "week", // "day" or "week" or "month" or "year" // Don't add this config property if the frequency is "logCount"
               } 
-            }
+            },
             filters: {
               endpoint: {
                 exclude: ["/content-manager/uid", "/admin/renew-token"],
