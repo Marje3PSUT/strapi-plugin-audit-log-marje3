@@ -39,7 +39,7 @@ The `intercept-request.js` middleware is crafted to enhance request handling. It
 
 1. Intercepts incoming requests.
 2. Processes these requests.
-3. Creates an entry in the `log` collection utilizing data extracted from both the request and the resulting response.
+3. Creates an entry in the `log` collection utilizing data extracted from both the request and the resulting response using the plugin configuration.
 
 This middleware is automatically registered globally in `register.js`.
 
