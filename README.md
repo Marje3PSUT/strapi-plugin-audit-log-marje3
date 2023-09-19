@@ -14,7 +14,7 @@ The default configuration is as follows (you must add it to `./config/plugin.js`
 ```js
 module.exports = {
     // ...
-    "audit-log-psut": {
+    "audit-log-marje3": {
         enabled: true,
         config: {
             deletion: {
