@@ -72,15 +72,3 @@ A cron task and service `delete-log` are created to handle deletion of records a
 The cron task executes once daily. It calls the `deleteJob()` function from the service `delete-log`, which checks the plugin settings and deletes the logs accordingly. Currently, the settings can only be changed within the frontend.
 
 The settings are stored using `strapi.store`, with the default settings set in the `bootstrap.js` file.
-
-### Frontend
-
-TODO
-
-## TODO
-
-1. Fix log fetching issue: When users open the logs tab for the first time, the strapi backend will send them to a web address with predefined query string. This leads to two requests being made. This happens because the every browser automatically handles 301 and 302 redirects, with no option to disable them. So, the only option available is to compare the request's address with the address in the response. If they don't match, the web address in the browser's bar is updated, causing yet another data retrieval process. (TODO: add enabled toggle to useQuery to bypass 2nd refresh)
-
-2. Add mechanism to include/exlude endpoints/statuses/methods from configuration file
-
-3. Add column hide/show menu.
