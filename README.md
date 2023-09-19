@@ -17,6 +17,14 @@ module.exports = {
     "@marje3psut/strapi-plugin-audit-log": {
         enabled: true,
         config: {
+            deletion: {
+              enabled: true,
+              frequency: "logAge", // "logAge" or "logCount"
+              options: {
+                  value: 2,
+                  interval: "week", // "day" or "week" or "month" or "year" // Don't add this config property if the frequency is "logCount"
+              } 
+            }
             filters: {
               endpoint: {
                 exclude: ["/content-manager/uid", "/admin/renew-token"],
