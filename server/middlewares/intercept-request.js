@@ -1,41 +1,46 @@
-"use strict";
-
+const _ = require("lodash");
 const pluginId = require("../utils/pluginId");
 
-const defaults = ["password", "token", "firstname", "lastname", "username"];
-
-const replaceContents = (object, defaults) => {
-  for (const key in object) {
-    if (typeof object[key] === "object") {
-      object[key] = replaceContents(object[key], defaults);
-    } else if (defaults.indexOf(key) !== -1) {
-      object[key] = "## REDACTED FOR SECURITY REASONS ##";
+const getFilterResult = (filter, valueToCheck) => {
+  let result = true;
+  if (filter) {
+    if (filter.include) {
+      result = filter.include.some((val) => val === valueToCheck);
+    } else if (filter.exclude) {
+      result = !filter.exclude.some((val) => val === valueToCheck);
     }
   }
-  return object;
+  return result;
 };
+
+const replaceContents = (obj, excludedValues) =>
+  _.mapKeys(obj, (value, key) => {
+    if (excludedValues.includes(key)) {
+      return "#_REDACTED_#";
+    }
+    return key;
+  });
 
 module.exports = ({ strapi }) => {
   strapi.server.use(async (ctx, next) => {
     await next();
 
-    let methods = ["POST", "PUT", "DELETE"];
-    let excludeURLs = ["/admin/renew-token"];
+    const config = strapi.config.get(`plugin.${pluginId}`);
+    const endpoint = getFilterResult(config.filters.endpoint, ctx.url);
+    const status = getFilterResult(config.filters.status, ctx.status);
+    const method = getFilterResult(config.filters.method, ctx.method);
 
-    if (
-      methods.some((method) => method === ctx.method) &&
-      !excludeURLs.some((url) => url === ctx.url)
-    ) {
+    if (endpoint && status && method) {
       const request = replaceContents(
         JSON.parse(JSON.stringify(ctx.request.body)),
-        defaults
+        config.redactedValues,
       );
       const response = replaceContents(
         JSON.parse(JSON.stringify(ctx.response.body)),
-        defaults
+        config.redactedValues,
       );
 
-      let data = {
+      const data = {
         user: ctx.state.user !== undefined ? ctx.state.user.email : "Anonymous",
         url: ctx.url,
         ip_address: ctx.ip,

@@ -1,6 +1,8 @@
-"use strict";
+const configSchema = require("./configSchema");
 
 module.exports = {
   default: {},
-  validator() {},
+  async validator(config) {
+    await configSchema.validate(config);
+  },
 };
