@@ -15,6 +15,7 @@ import {
   useNotifyAT,
   NumberInput,
 } from "@strapi/design-system";
+import { Link } from "@strapi/design-system/v2";
 import {
   SettingsPageTitle,
   CheckPagePermissions,
@@ -206,6 +207,25 @@ function Settings() {
             paddingRight={7}
           >
             <Flex direction="column" alignItems="stretch" gap={4}>
+              <Box
+                padding={4}
+                background="primary100"
+                shadow="filterShadow"
+                borderColor="danger600"
+              >
+                <Typography>
+                  The settings will be saved only for this session. Enter these
+                  settings into the configuration file for persistence. (check
+                  the documentation{" "}
+                  <Link
+                    isExternal
+                    href="https://github.com/Marje3PSUT/strapi-plugin-audit-log-marje3/blob/main/README.md"
+                  >
+                    here
+                  </Link>
+                  )
+                </Typography>
+              </Box>
               <Typography variant="delta" as="h2">
                 {`${formatMessage({
                   id: getTrad("settings.box.header"),
