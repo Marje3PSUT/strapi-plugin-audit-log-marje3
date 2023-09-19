@@ -14,7 +14,7 @@ The default configuration is as follows (you must add it to `./config/plugin.js`
 ```js
 module.exports = {
     // ...
-    "@marje3psut/strapi-plugin-audit-log": {
+    "audit-log-psut": {
         enabled: true,
         config: {
             deletion: {
