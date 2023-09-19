@@ -43,5 +43,5 @@ Each of the filter properties can either have an exclude or an include property,
 
 ## Links:
 
-- [TODO](./docs/TODO.md)
-- [BREAKDOWN](./docs/BREAKDOWN.md)
+- [Todo](./docs/TODO.md)
+- [Breakdown](./docs/BREAKDOWN.md)
