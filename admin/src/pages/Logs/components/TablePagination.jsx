@@ -5,7 +5,7 @@ import { Box, Flex } from "@strapi/design-system";
 import { PageSizeURLQuery, PaginationURLQuery } from "@strapi/helper-plugin";
 
 // Define the TablePagination component
-const TablePagination = ({ pagination }) => {
+function TablePagination({ pagination }) {
   return (
     <Box paddingTop={4}>
       <Flex alignItems="flex-end" justifyContent="space-between">
@@ -14,7 +14,7 @@ const TablePagination = ({ pagination }) => {
       </Flex>
     </Box>
   );
-};
+}
 
 // Define default props
 TablePagination.defaultProps = {

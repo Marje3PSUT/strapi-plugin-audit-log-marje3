@@ -1,5 +1,3 @@
-"use strict";
-
 import React, { useState } from "react";
 import { useIntl } from "react-intl";
 
@@ -14,7 +12,7 @@ import LogRow from "./LogRow";
 import LogModal from "./LogModal";
 import getTrad from "../../../utils/getTrad";
 
-const InteractiveLogRows = ({ entries, visibleColumns }) => {
+function InteractiveLogRows({ entries, visibleColumns }) {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedEntry, setSelectedEntry] = useState({});
   const { formatMessage } = useIntl();
@@ -37,7 +35,7 @@ const InteractiveLogRows = ({ entries, visibleColumns }) => {
             MozUserSelect: "none",
             msUserSelect: "none",
           }}
-        ></LogRow>
+        />
       ))}
 
       {isVisible && (
@@ -65,6 +63,6 @@ const InteractiveLogRows = ({ entries, visibleColumns }) => {
       )}
     </>
   );
-};
+}
 
 export default InteractiveLogRows;

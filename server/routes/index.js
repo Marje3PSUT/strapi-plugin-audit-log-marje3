@@ -1,5 +1,3 @@
-"use strict";
-
 const LogRouter = require("./log");
 const LogSettingsRouter = require("./log-settings");
 

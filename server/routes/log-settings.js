@@ -1,5 +1,3 @@
-"use strict";
-
 const pluginId = require("../utils/pluginId");
 
 module.exports = {

@@ -1,5 +1,3 @@
-"use strict";
-
 const LogController = require("./log");
 const LogSettingsController = require("./log-settings");
 

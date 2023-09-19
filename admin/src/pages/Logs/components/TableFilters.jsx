@@ -13,7 +13,7 @@ import { Button, Box } from "@strapi/design-system";
 import getTrad from "../../../utils/getTrad";
 
 // Define the TableFilters component
-const TableFilters = ({ displayedFilters }) => {
+function TableFilters({ displayedFilters }) {
   const [isVisible, setIsVisible] = useState(false);
   const buttonRef = useRef();
   const { formatMessage } = useIntl();
@@ -51,7 +51,7 @@ const TableFilters = ({ displayedFilters }) => {
       <FilterListURLQuery filtersSchema={displayedFilters} />
     </>
   );
-};
+}
 
 // PropTypes for component props
 TableFilters.propTypes = {
@@ -60,7 +60,7 @@ TableFilters.propTypes = {
       name: PropTypes.string.isRequired,
       metadatas: PropTypes.shape({ label: PropTypes.string }),
       fieldSchema: PropTypes.shape({ type: PropTypes.string }),
-    })
+    }),
   ).isRequired,
 };
 

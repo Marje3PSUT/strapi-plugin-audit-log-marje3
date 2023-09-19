@@ -3,7 +3,7 @@ import pluginPkg from "../../package.json";
 import pluginId from "./utils/pluginId";
 import Initializer from "./components/Initializer";
 
-const name = pluginPkg.strapi.name;
+const { name } = pluginPkg.strapi;
 
 export default {
   register(app) {
@@ -31,7 +31,7 @@ export default {
           id: `${pluginId}.section.logs`,
           to: `/settings/${pluginId}/logs`,
           async Component() {
-            const component = await import("./pages/Logs"); //TODO
+            const component = await import("./pages/Logs"); // TODO
             return component;
           },
           permissions: [{ action: `plugin::${pluginId}.read`, subject: null }],
@@ -51,30 +51,26 @@ export default {
             { action: `plugin::${pluginId}.settings.read`, subject: null },
           ],
         },
-      ]
+      ],
     );
   },
 
-  bootstrap(app) {},
+  bootstrap(app) { },
   async registerTrads({ locales }) {
     const importedTrads = await Promise.all(
-      locales.map((locale) => {
-        return import(
+      locales.map((locale) =>
+        import(
           /* webpackChunkName: "translation-[request]" */ `./translations/${locale}.json`
         )
-          .then(({ default: data }) => {
-            return {
-              data: prefixPluginTranslations(data, pluginId),
-              locale,
-            };
-          })
-          .catch(() => {
-            return {
-              data: {},
-              locale,
-            };
-          });
-      })
+          .then(({ default: data }) => ({
+            data: prefixPluginTranslations(data, pluginId),
+            locale,
+          }))
+          .catch(() => ({
+            data: {},
+            locale,
+          })),
+      ),
     );
 
     return Promise.resolve(importedTrads);

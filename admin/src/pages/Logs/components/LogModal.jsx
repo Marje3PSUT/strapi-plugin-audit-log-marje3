@@ -1,5 +1,3 @@
-"use strict";
-
 import React from "react";
 import { useIntl } from "react-intl";
 
@@ -7,7 +5,7 @@ import { Flex, TextInput, JSONInput } from "@strapi/design-system";
 
 import getTrad from "../../../utils/getTrad";
 
-const LogModal = ({ entry }) => {
+function LogModal({ entry }) {
   const { formatMessage } = useIntl();
 
   return (
@@ -41,7 +39,7 @@ const LogModal = ({ entry }) => {
           id: getTrad("content.ip_address"),
           defaultMessage: "IP Address",
         })}
-        value={entry["ip_address"]}
+        value={entry.ip_address}
         disabled
       />
       <TextInput
@@ -49,7 +47,7 @@ const LogModal = ({ entry }) => {
           id: getTrad("content.http_method"),
           defaultMessage: "HTTP Method",
         })}
-        value={entry["http_method"]}
+        value={entry.http_method}
         disabled
       />
       <TextInput
@@ -57,7 +55,7 @@ const LogModal = ({ entry }) => {
           id: getTrad("content.http_status"),
           defaultMessage: "HTTP Status",
         })}
-        value={entry["http_status"]}
+        value={entry.http_status}
         disabled
       />
       <JSONInput
@@ -65,7 +63,7 @@ const LogModal = ({ entry }) => {
           id: getTrad("content.request_body"),
           defaultMessage: "Request Body",
         })}
-        value={JSON.stringify(entry["request_body"], null, 2)}
+        value={JSON.stringify(entry.request_body, null, 2)}
         disabled
       />
       <JSONInput
@@ -73,11 +71,11 @@ const LogModal = ({ entry }) => {
           id: getTrad("content.response_body"),
           defaultMessage: "Response Body",
         })}
-        value={JSON.stringify(entry["response_body"], null, 2)}
+        value={JSON.stringify(entry.response_body, null, 2)}
         disabled
       />
     </Flex>
   );
-};
+}
 
 export default LogModal;

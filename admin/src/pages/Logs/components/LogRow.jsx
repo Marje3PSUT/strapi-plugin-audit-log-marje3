@@ -1,10 +1,8 @@
-"use strict";
-
 import React from "react";
 
 import { Tr, Td, Typography } from "@strapi/design-system";
 
-const LogRow = ({ entry, visibleColumns, onClickHandler, style }) => {
+function LogRow({ entry, visibleColumns, onClickHandler, style }) {
   return (
     <Tr key={entry.id} onClick={() => onClickHandler(entry)} style={style}>
       {visibleColumns
@@ -20,6 +18,6 @@ const LogRow = ({ entry, visibleColumns, onClickHandler, style }) => {
         ))}
     </Tr>
   );
-};
+}
 
 export default LogRow;

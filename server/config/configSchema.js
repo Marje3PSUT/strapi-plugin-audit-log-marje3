@@ -24,7 +24,25 @@ const includeExcludeMixed = (type) =>
       },
     );
 
+const deletionObject = yup.object().shape({
+  enabled: yup.bool(),
+  frequency: yup.string().oneOf(["logAge", "logCount"]),
+  options: yup.object().when("frequency", {
+    is: "logAge",
+    then: () =>
+      yup.object().shape({
+        value: yup.number().min(1),
+        interval: yup.string().oneOf(["day", "week", "month", "year"]),
+      }),
+    otherwise: () =>
+      yup.object().shape({
+        value: yup.number().min(1),
+      }),
+  }),
+});
+
 module.exports = yup.object().shape({
+  deletion: deletionObject.optional(),
   filters: yup
     .object()
     .shape({

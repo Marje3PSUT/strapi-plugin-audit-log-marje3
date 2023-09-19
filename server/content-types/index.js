@@ -1,5 +1,3 @@
-"use strict";
-
 const CollectionSchema = require("./log");
 
 module.exports = {
