@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-audit-log-marje3",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A plugin that logs all user interactions, fully-equiped with permissions and configurations.",
   "strapi": {
     "name": "audit-log-marje3",
