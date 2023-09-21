@@ -14,7 +14,7 @@ const getFilterResult = (filter, valueToCheck) => {
 };
 
 const replaceContents = (obj, excludedValues) =>
-  _.mapKeys(obj, (value, key) => {
+  _.mapValues(obj, (value, key) => {
     if (excludedValues.includes(key)) {
       return "#_REDACTED_#";
     }
