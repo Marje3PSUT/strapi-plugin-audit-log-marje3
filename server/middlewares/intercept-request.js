@@ -15,10 +15,10 @@ const getFilterResult = (filter, valueToCheck) => {
 
 const replaceContents = (obj, excludedValues) =>
   _.mapValues(obj, (value, key) => {
-    if (excludedValues.includes(key)) {
-      return "#_REDACTED_#";
-    }
-    return key;
+    if (excludedValues.includes(key)) return "#_REDACTED_#";
+    if (typeof value === "object")
+      return replaceContents(value, excludedValues);
+    return value;
   });
 
 module.exports = ({ strapi }) => {
