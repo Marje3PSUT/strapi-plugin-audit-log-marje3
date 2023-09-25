@@ -27,7 +27,7 @@ module.exports = {
             },
             filters: {
               endpoint: {
-                exclude: ["/content-manager/uid", "/admin/renew-token"],
+                exclude: ["/content-manager/uid", "/admin/renew-token", "/_health"],
               },
               status: {},
               method: {

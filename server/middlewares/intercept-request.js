@@ -31,14 +31,22 @@ module.exports = ({ strapi }) => {
     const method = getFilterResult(config.filters.method, ctx.method);
 
     if (endpoint && status && method) {
-      const request = replaceContents(
-        JSON.parse(JSON.stringify(ctx.request.body)),
-        config.redactedValues,
-      );
-      const response = replaceContents(
-        JSON.parse(JSON.stringify(ctx.response.body)),
-        config.redactedValues,
-      );
+      let request = {};
+      let response = {};
+
+      if (ctx.request.body) {
+        request = replaceContents(
+          JSON.parse(JSON.stringify(ctx.request.body)),
+          config.redactedValues,
+        );
+      }
+
+      if (ctx.response.body) {
+        response = replaceContents(
+          JSON.parse(JSON.stringify(ctx.response.body)),
+          config.redactedValues,
+        );
+      }
 
       const data = {
         user: ctx.state.user !== undefined ? ctx.state.user.email : "Anonymous",
