@@ -71,4 +71,4 @@ A cron task and service `delete-log` are created to handle deletion of records a
 
 The cron task executes once daily. It calls the `deleteJob()` function from the service `delete-log`, which checks the plugin settings and deletes the logs accordingly. Currently, the settings can only be changed within the frontend.
 
-The settings are stored using `strapi.store`, with the default settings set in the `bootstrap.js` file.
+The settings are stored using `strapi.config`. The default settings can be set using the configuration shown in the `README.md` file.
