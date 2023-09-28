@@ -1,13 +1,15 @@
 const _ = require("lodash");
 const pluginId = require("../utils/pluginId");
 
-const getFilterResult = (filter, valueToCheck) => {
+const getFilterResult = (filter, actualValue, checkFunction) => {
   let result = true;
+  let check = (val, valToCheck) => val === valToCheck;
+  if (checkFunction) check = checkFunction;
   if (filter) {
     if (filter.include) {
-      result = filter.include.some((val) => val === valueToCheck);
+      result = filter.include.some((val) => check(val, actualValue));
     } else if (filter.exclude) {
-      result = !filter.exclude.some((val) => val === valueToCheck);
+      result = !filter.exclude.some((val) => check(val, actualValue));
     }
   }
   return result;
@@ -26,7 +28,12 @@ module.exports = ({ strapi }) => {
     await next();
 
     const config = strapi.config.get(`plugin.${pluginId}`);
-    const endpoint = getFilterResult(config.filters.endpoint, ctx.url);
+
+    const endpoint = getFilterResult(
+      config.filters.endpoint,
+      ctx.url,
+      (val, valToCheck) => valToCheck.startsWith(val),
+    );
     const status = getFilterResult(config.filters.status, ctx.status);
     const method = getFilterResult(config.filters.method, ctx.method);
 
